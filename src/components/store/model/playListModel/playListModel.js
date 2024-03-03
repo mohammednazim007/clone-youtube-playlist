@@ -34,12 +34,10 @@ const playlistModel = {
 
     try {
       // checking localStorage data is exist
-      const localData = LocalStorage.GET_LOCAL_STORAGE_DATA(key);
-      if (localData && localData.items[playlistId]) {
-        actions.SAVE_PLAY_LIST({ ...localData.items });
-        return;
+      const storageData = LocalStorage.GET_LOCAL_STORAGE_DATA(key);
+      if (storageData) {
+        console.log("store data ", storageData);
       }
-
       // api request will done
       actions.setLoadingFn(true);
       const response = await GET_PLAY_LIST(playlistId);

@@ -1,6 +1,12 @@
 "use client";
 import { Button, Navbar } from "keep-react";
-import { Heart, MagnifyingGlass, ShoppingCart, User } from "phosphor-react";
+import {
+  Heart,
+  MagnifyingGlass,
+  ShoppingCart,
+  User,
+  YoutubeLogo,
+} from "phosphor-react";
 import "./nav.css";
 import { Link } from "react-router-dom";
 import { useStore } from "easy-peasy";
@@ -14,7 +20,7 @@ const NavbarComponent = () => {
           className="lg:flex items-center justify-between gap-8"
         >
           <Link to={"/home"}>
-            <h1 className="text-2xl md:text-4xl">Clean Youtube</h1>
+            <YoutubeLogo size={40} color="#fa006c" />
           </Link>
         </Navbar.Container>
 

@@ -4,9 +4,6 @@ import Play_list_cart_component from "./Play_list_cart_component";
 import "./playlist.css";
 import SpinnerComponent from "../spinner/Spinner";
 import { LocalStorage } from "../../utility/localStorage";
-import { useEffect } from "react";
-import { useSignal } from "@preact/signals-react";
-import { useForm } from "react-hook-form";
 
 const key = import.meta.env.VITE_PLAYLIST_KEY;
 

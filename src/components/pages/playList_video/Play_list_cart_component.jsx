@@ -27,7 +27,7 @@ const Play_list_cart_component = ({ data }) => {
             <Avatar
               shape="circle"
               size="lg"
-              className="w-[5.0rem] h-[4.0rem]"
+              className="w-[4.5rem] h-[3.5rem]"
               img={data?.medium?.url}
             />
 
