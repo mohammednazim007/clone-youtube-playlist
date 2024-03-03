@@ -1,0 +1,32 @@
+.bg_nav {
+  background: rgb(224, 222, 88);
+  background: radial-gradient(
+    circle,
+    rgba(224, 222, 88, 1) 0%,
+    rgba(126, 217, 146, 1) 84%
+  );
+}
+a.navList {
+  padding: 5px 8px;
+}
+
+/* a.navList:hover {
+  background: rgb(207, 221, 98);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(207, 221, 98, 1) 0%,
+    rgba(132, 217, 143, 1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(207, 221, 98, 1) 0%,
+    rgba(132, 217, 143, 1) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(207, 221, 98, 1) 0%,
+    rgba(132, 217, 143, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cfdd62",endColorstr="#84d98f",GradientType=1);
+  transition: 0.5s;
+} */
