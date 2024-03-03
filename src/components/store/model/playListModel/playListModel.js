@@ -33,11 +33,6 @@ const playlistModel = {
     }
 
     try {
-      // checking localStorage data is exist
-      const storageData = LocalStorage.GET_LOCAL_STORAGE_DATA(key);
-      if (storageData) {
-        console.log("store data ", storageData);
-      }
       // api request will done
       actions.setLoadingFn(true);
       const response = await GET_PLAY_LIST(playlistId);
@@ -45,7 +40,6 @@ const playlistModel = {
 
       // set loading false as well as store data
       actions.setLoadingFn(false);
-      LocalStorage.SAVE_LOCAL_DATA(key, helper.getState());
 
       //handle error message
     } catch (error) {

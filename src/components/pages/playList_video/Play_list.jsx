@@ -4,6 +4,7 @@ import Play_list_cart_component from "./Play_list_cart_component";
 import "./playlist.css";
 import SpinnerComponent from "../spinner/Spinner";
 import { LocalStorage } from "../../utility/localStorage";
+import { toast } from "react-toastify";
 
 const key = import.meta.env.VITE_PLAYLIST_KEY;
 
@@ -17,6 +18,12 @@ const Play_list_component = () => {
   const inputHandlebar = (data) => {
     const playlistId = data?.urlField;
     GET_PLAYLIST_BY_ID(playlistId);
+
+    // send toast notification
+    toast.success("successfully added", {
+      position: "bottom-right",
+      autoClose: 1000,
+    });
   };
 
   // convert object to array elements for values
@@ -31,14 +38,11 @@ const Play_list_component = () => {
         <SpinnerComponent />
       ) : (
         <div className="responsive_css ">
-          {modifyData
-            ? modifyData?.map((value) => (
-                <Play_list_cart_component key={value.playlistId} data={value} />
-              ))
-            : "There is no item"}
+          {modifyData?.map((value) => (
+            <Play_list_cart_component key={value.playlistId} data={value} />
+          ))}
         </div>
       )}
-      {/* <SpinnerComponent /> */}
     </div>
   );
 };
