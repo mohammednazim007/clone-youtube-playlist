@@ -1,0 +1,9 @@
+.responsive_css {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 2fr));
+  gap: 1fr;
+}
+.card_css:hover {
+  cursor: pointer;
+  display: red;
+}

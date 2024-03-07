@@ -1,5 +1,6 @@
 import { Heart, ShoppingCart } from "phosphor-react";
 import { Avatar, Card } from "keep-react";
+import { Link } from "react-router-dom";
 
 const Play_list_cart_component = ({ data }) => {
   return (
@@ -23,20 +24,20 @@ const Play_list_cart_component = ({ data }) => {
             </p>
           </Card.Container>
           {/* image with channel name */}
-          <Card.Container className="flex items-center py-2">
-            <Avatar
-              shape="circle"
-              size="lg"
-              className="w-[4.5rem] h-[3.5rem]"
-              img={data?.medium?.url}
-            />
-
-            <span className="inline-block ml-2 text-[1.0rem] font-bold">
-              {data?.channelTitle.length >= 20
-                ? `${data?.channelTitle.slice(0, 50)} ...`
-                : data?.channelTitle}
-            </span>
-          </Card.Container>
+          <Link to={`/home/playlistVideo/${data?.playlistId}`}>
+            <Card.Container className="flex items-center py-2">
+              <div className="w-[100px]">
+                <Avatar shape="circle" size="lg" img={data?.medium?.url} />
+              </div>
+              <div>
+                <span className="inline-block ml-2 text-[1.0rem] font-bold">
+                  {data?.channelTitle.length >= 20
+                    ? `${data?.channelTitle.slice(0, 50)} ...`
+                    : data?.channelTitle}
+                </span>
+              </div>
+            </Card.Container>
+          </Link>
         </Card.Container>
       </Card>
     </div>

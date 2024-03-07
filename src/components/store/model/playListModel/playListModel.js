@@ -1,6 +1,7 @@
 import { action, thunk } from "easy-peasy";
 import GET_PLAY_LIST from "../../../utility/getPlaylist";
 import { LocalStorage } from "../../../utility/localStorage";
+import { toast } from "react-toastify";
 
 const key = import.meta.env.VITE_PLAYLIST_KEY;
 
@@ -28,7 +29,7 @@ const playlistModel = {
     const existId = helper.getState().items[playlistId];
 
     if (existId) {
-      alert("This playlist is loaded");
+      toast.error("Playlist id already exist");
       return;
     }
 
@@ -38,9 +39,16 @@ const playlistModel = {
       const response = await GET_PLAY_LIST(playlistId);
       actions.SAVE_PLAY_LIST(response);
 
-      // set loading false as well as store data
+      // set loading false as well as store data TODO: LOCAL STORAGE INCLUDE
       actions.setLoadingFn(false);
 
+      // send toast notification
+      if (response.videoId) {
+        toast.success("successfully added", {
+          position: "bottom-right",
+          autoClose: 1000,
+        });
+      }
       //handle error message
     } catch (error) {
       actions.setErrorFn(error?.message);

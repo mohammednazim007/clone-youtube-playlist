@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const playlistId = `PLHiZ4m8vCp9MOm1pnPG5ATcl7y6EW6kXl`;
-const api_key = `AIzaSyBvr9JnMGMm0DkajTfIXV7TSgfDmwS46ks`;
+const api_key = import.meta.env.VITE_CHANNEL_KEY;
 
 const GET_PLAY_LIST = async (playId) => {
   // play list url with ID & key

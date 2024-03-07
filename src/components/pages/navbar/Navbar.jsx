@@ -9,7 +9,6 @@ import {
 } from "phosphor-react";
 import "./nav.css";
 import { Link } from "react-router-dom";
-import { useStore } from "easy-peasy";
 
 const NavbarComponent = () => {
   return (
@@ -17,11 +16,14 @@ const NavbarComponent = () => {
       <Navbar.Container className="flex items-center justify-between">
         <Navbar.Container
           tag="ul"
-          className="lg:flex items-center justify-between gap-8"
+          className="lg:flex items-center justify-between gap-5"
         >
           <Link to={"/home"}>
             <YoutubeLogo size={40} color="#fa006c" />
           </Link>
+          <span className="font-bold  text-xl hidden lg:block">
+            <span className="text-[#F7418F]">YOU</span>TUBE
+          </span>
         </Navbar.Container>
 
         {/*nav list item push here */}
@@ -32,7 +34,7 @@ const NavbarComponent = () => {
             <Link className="navList" to={"/home"}>
               Home
             </Link>
-            <Link to={"/product"}>Product</Link>
+            <Link to={""}>Product</Link>
             <Link to={"/contact"}>Contact</Link>
           </Navbar.Container>
         </Navbar.Collapse>
@@ -60,9 +62,8 @@ const NavbarComponent = () => {
             <span>
               <ShoppingCart size={20} color="#444" />
             </span>
-            <span className="ml-1 text-metal-600">Cart $0.00</span>
           </Button>
-          <Navbar.Toggle />
+          <Navbar.Toggle className="w-9" />
         </Navbar.Container>
       </Navbar.Container>
     </Navbar>
