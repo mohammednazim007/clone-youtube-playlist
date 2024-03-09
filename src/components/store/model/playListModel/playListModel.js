@@ -41,6 +41,7 @@ const playlistModel = {
 
       // set loading false as well as store data TODO: LOCAL STORAGE INCLUDE
       actions.setLoadingFn(false);
+      LocalStorage.SAVE_LOCAL_DATA(key, helper.getState().items);
 
       // send toast notification
       if (response.videoId) {

@@ -40,10 +40,11 @@ const Search_input_component = ({ inputHandlebar }) => {
             addonPosition="left"
             {...register("urlField", { required: true })}
           />
+          
           {/* error handle */}
           {errors.urlField && errors.urlField?.type === "required" && (
             <Label
-              className="text-[#EE79A5]"
+              className="text-[#EE79A5] font-bold"
               htmlFor="#id-7"
               value="The input field is required"
               color="success"
