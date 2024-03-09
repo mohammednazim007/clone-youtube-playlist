@@ -7,26 +7,9 @@
   );
 }
 a.navList {
-  padding: 5px 8px;
+  padding: 8px 0px;
 }
-
-/* a.navList:hover {
-  background: rgb(207, 221, 98);
-  background: -moz-radial-gradient(
-    circle,
-    rgba(207, 221, 98, 1) 0%,
-    rgba(132, 217, 143, 1) 100%
-  );
-  background: -webkit-radial-gradient(
-    circle,
-    rgba(207, 221, 98, 1) 0%,
-    rgba(132, 217, 143, 1) 100%
-  );
-  background: radial-gradient(
-    circle,
-    rgba(207, 221, 98, 1) 0%,
-    rgba(132, 217, 143, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cfdd62",endColorstr="#84d98f",GradientType=1);
+a.navList:hover {
+  background: #dafffb;
   transition: 0.5s;
-} */
+}

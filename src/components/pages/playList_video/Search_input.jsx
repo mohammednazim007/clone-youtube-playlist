@@ -8,8 +8,7 @@ const Search_input_component = ({ inputHandlebar }) => {
     register,
     handleSubmit,
     reset,
-    watch,
-    formState: { errors, isSubmitted, isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful },
   } = useForm();
 
   // reset input url field
@@ -24,7 +23,11 @@ const Search_input_component = ({ inputHandlebar }) => {
       <form className="py-10" onSubmit={handleSubmit(inputHandlebar)}>
         {/* search input field */}
         <div className="md:w-1/2 mx-auto md:px-5 relative">
-          <Label htmlFor="#id-7" value="Enter URL" color="success" />
+          <Label
+            htmlFor="#id-7"
+            value="Enter Youtube Playlist URL"
+            color="success"
+          />
 
           <TextInput
             id="#id-7"
@@ -39,7 +42,12 @@ const Search_input_component = ({ inputHandlebar }) => {
           />
           {/* error handle */}
           {errors.urlField && errors.urlField?.type === "required" && (
-            <span className="text-[#EE79A5]">This input field is empty</span>
+            <Label
+              className="text-[#EE79A5]"
+              htmlFor="#id-7"
+              value="The input field is required"
+              color="success"
+            />
           )}
 
           {/* submit button */}

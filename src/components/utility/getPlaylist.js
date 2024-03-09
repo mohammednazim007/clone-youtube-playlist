@@ -11,7 +11,6 @@ const GET_PLAY_LIST = async (playId) => {
   const { data } = await axios.get(url);
   const {
     contentDetails: { videoId },
-
     snippet: {
       channelId,
       description,

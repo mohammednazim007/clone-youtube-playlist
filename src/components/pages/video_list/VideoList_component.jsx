@@ -5,48 +5,56 @@ import { useStoreActions, useStoreState } from "easy-peasy";
 import SpinnerComponent from "../spinner/Spinner";
 import Video_card from "./Video_card";
 import "./responsive.css";
+import useYouTubePlaylist from "../../hooks/useYouTubePlaylist";
+import { useSignal } from "@preact/signals-react";
 
 const VideoList_component = () => {
-  let [videoId, setVideoId] = useState("");
   const { id } = useParams();
-  const { GET_VIDEOS_BY_ID } = useStoreActions((action) => action.videoList);
+  const [videoInfo, setVideoInfo] = useState({});
+  const { SAVE_VIDEO } = useStoreActions((action) => action.videoList);
   const { items, isLoadingVideo } = useStoreState((state) => state.videoList);
+  const youtubeList = useYouTubePlaylist(id);
 
-  // === This fn will call when will be mount for one time ===
   useEffect(() => {
-    GET_VIDEOS_BY_ID(id);
-  }, []);
+    SAVE_VIDEO(youtubeList);
+    return () => SAVE_VIDEO(youtubeList);
+  }, [youtubeList]);
 
-  // video id handler
-  const handleVideoId = (id) => {
-    setVideoId(id);
+  const handleVideoId = (videoInfo) => {
+    setVideoInfo({ ...videoInfo });
   };
 
-  //
-
   return (
-    <div className="responsive_css container py-5">
-      {/*=== video player  ===*/}
-      <div>
-        <Video_card videoId={videoId} />
-      </div>
+    <div className="bg_gradient">
+      <div className="responsive_css container py-10">
+        {isLoadingVideo ? (
+          <SpinnerComponent />
+        ) : (
+          <>
+            <div className="">
+              <Video_card videoInfo={videoInfo} />
+            </div>
 
-      {/*=== all videos will render ===*/}
-      {isLoadingVideo ? (
-        <SpinnerComponent />
-      ) : (
-        <div className="lg:ml-5">
-          {items
-            ? items.map((v) => (
-                <SidebarComponent
-                  handleVideoId={handleVideoId}
-                  key={v.videoId}
-                  data={v}
-                />
-              ))
-            : "No content"}
-        </div>
-      )}
+            {/*=== all videos will render ===*/}
+            {isLoadingVideo ? (
+              <SpinnerComponent />
+            ) : (
+              <div className="lg:ml-5 h-[80vh] overflow-auto overscroll-y-none">
+                {items
+                  ? items.map((v) => (
+                      <SidebarComponent
+                        handleVideoId={handleVideoId}
+                        key={v.etag}
+                        value={v}
+                      />
+                    ))
+                  : "No content"}
+              </div>
+            )}
+          </>
+        )}
+        {/*=== video player   ===*/}
+      </div>
     </div>
   );
 };

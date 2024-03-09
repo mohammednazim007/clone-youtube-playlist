@@ -1,5 +1,5 @@
 "use client";
-import { Button, Navbar } from "keep-react";
+import { Button, Navbar, TextInput } from "keep-react";
 import {
   Heart,
   MagnifyingGlass,
@@ -28,14 +28,16 @@ const NavbarComponent = () => {
 
         {/*nav list item push here */}
         <Navbar.Collapse collapseType="sidebar">
-          <Navbar.Container tag="ul" className="flex flex-col gap-1">
-            {/* <Navbar.Link linkName="Home" />
-            <Navbar.Link linkName="Projects" /> */}
+          <Navbar.Container tag="ul" className="w-full flex flex-col gap-1">
             <Link className="navList" to={"/home"}>
               Home
             </Link>
-            <Link to={""}>Product</Link>
-            <Link to={"/contact"}>Contact</Link>
+            <Link className="navList" to={"/home/product"}>
+              Product
+            </Link>
+            <Link className="navList" to={"/home/contact"}>
+              Contact
+            </Link>
           </Navbar.Container>
         </Navbar.Collapse>
 
@@ -44,14 +46,16 @@ const NavbarComponent = () => {
             tag="ul"
             className="lg:flex hidden items-center justify-between gap-5"
           >
-            <Navbar.Link
-              icon={<MagnifyingGlass size={20} color="#444" />}
-              iconAnimation={false}
+            <TextInput
+              id="#id-10"
+              placeholder="Search anything"
+              color="gray"
+              sizing="sm"
+              type="text"
+              addon={<MagnifyingGlass size={20} color="#5E718D" />}
+              addonPosition="left"
             />
-            <Navbar.Link
-              icon={<User size={20} color="#444" />}
-              iconAnimation={false}
-            />
+
             <Navbar.Link
               icon={<Heart size={20} color="#444" />}
               iconAnimation={false}
