@@ -15,35 +15,37 @@ const useYouTubePlaylist = (playlistId) => {
 
   let url = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=${playlistId}&key=${api_key}`;
 
+  // controller
   useEffect(() => {
     try {
       const GET_VIDEO_REQUEST = async () => {
+        SET_VIDEO_LOADING(true);
+
         if (nextPageToken) {
           url += `&pageToken=${nextPageToken}`;
         }
-        SET_VIDEO_LOADING(true);
+
         let response = await axios.get(url);
         const data = await response.data;
 
         if (!data.nextPageToken) {
+          SET_VIDEO_LOADING(false);
           return;
         }
 
+        // TODO: error is unique key duplicate
         setPlaylistItems((prevItems) => [...prevItems, ...data.items]);
-        setNextPageToken(data.nextPageToken || "");
+        setNextPageToken(data.nextPageToken);
       };
 
       GET_VIDEO_REQUEST();
     } catch (error) {
       SET_VIDEO_ERROR(error.message);
-    } finally {
-      SET_VIDEO_LOADING(false);
-      SET_VIDEO_ERROR("");
     }
-
     // === dependence ===
   }, [api_key, playlistId, nextPageToken]);
 
-  return playlistItems;
+  return { playlistItems, nextPageToken };
 };
+
 export default useYouTubePlaylist;
