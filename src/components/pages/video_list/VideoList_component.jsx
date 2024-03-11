@@ -6,6 +6,8 @@ import useYouTubePlaylist from "../../hooks/useYouTubePlaylist";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { useEffect, useState } from "react";
 import SpinnerComponent from "../spinner/Spinner";
+import { signal } from "@preact/signals-react";
+export const videoObject = signal({});
 
 const VideoList_component = () => {
   const [videoId, setVideoId] = useState("");
@@ -18,8 +20,9 @@ const VideoList_component = () => {
     SAVE_VIDEO(playlistItems);
   }, [nextPageToken]);
 
-  const playVideoHandler = (id) => {
+  const playVideoHandler = (id, value) => {
     setVideoId(id);
+    videoObject.value = { ...value };
   };
 
   return (

@@ -8,11 +8,14 @@ const Playlist_card = ({ value, playVideoHandler }) => {
     title,
     thumbnails: { high },
   } = value.snippet;
+  console.log(title);
+
+  const videoObj = { channelTitle, description, title, high };
 
   return (
     <div>
       <Card
-        onClick={() => playVideoHandler(videoId)}
+        onClick={() => playVideoHandler(videoId, videoObj)}
         className="py-3 mb-2 hover:cursor-pointer"
       >
         <Card.Container className="flex items-start border-none justify-start">
@@ -22,11 +25,11 @@ const Playlist_card = ({ value, playVideoHandler }) => {
           </div>
           <div className="md:px-6 px-3">
             <Card.Title className="text-body-5 md:text-body-2 font-medium text-metal-700">
-              <p className="font-medium">
-                {channelTitle && channelTitle.length >= 50
-                  ? channelTitle.slice(0, 50)
-                  : channelTitle}
-                <hr className="mb-1 block" />
+              <p className="font-medium ">
+                {title && title.length >= 20
+                  ? `${title.slice(0, 30)} ...`
+                  : title}
+                <hr className="my-1 block border-t-error-100 " />
               </p>
             </Card.Title>
             <Card.Description className="text-body-6 md:text-body-5 font-normal text-metal-500">
