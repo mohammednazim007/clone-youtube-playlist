@@ -29,7 +29,7 @@ const playlistModel = {
     const existId = helper.getState().items[playlistId];
 
     if (existId) {
-      toast.error("Playlist id already exist");
+      toast.error("Playlist id already exist", { autoClose: 1000 });
       return;
     }
 

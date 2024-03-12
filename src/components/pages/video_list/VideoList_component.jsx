@@ -39,11 +39,11 @@ const VideoList_component = () => {
           {/* === sidebar component will render here ==== */}
           <div className="h-[95vh] overflow-scroll ">
             {items &&
-              items?.map((value) => (
+              items?.map((value, index) => (
                 <Playlist_card
                   playVideoHandler={playVideoHandler}
-                  key={value.etag}
                   value={value}
+                  key={value.etag + index}
                 />
               ))}
           </div>

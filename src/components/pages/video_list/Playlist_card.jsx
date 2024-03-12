@@ -8,7 +8,6 @@ const Playlist_card = ({ value, playVideoHandler }) => {
     title,
     thumbnails: { high },
   } = value.snippet;
-  console.log(title);
 
   const videoObj = { channelTitle, description, title, high };
 

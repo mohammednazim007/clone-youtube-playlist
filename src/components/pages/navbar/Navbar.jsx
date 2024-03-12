@@ -10,7 +10,6 @@ import {
 import "./nav.css";
 import { Link } from "react-router-dom";
 import { useStoreState } from "easy-peasy";
-
 const NavbarComponent = () => {
   const { items } = useStoreState((state) => state.favoriteNotification);
 

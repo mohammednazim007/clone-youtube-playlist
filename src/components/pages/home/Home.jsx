@@ -1,4 +1,3 @@
-import React from "react";
 import Play_list_component from "../playList_video/Play_list";
 
 const Home = () => {
@@ -6,8 +5,6 @@ const Home = () => {
     <div>
       {/* play list component will show here after fetch the youtube data */}
       <Play_list_component />
-
-      {/*  */}
     </div>
   );
 };

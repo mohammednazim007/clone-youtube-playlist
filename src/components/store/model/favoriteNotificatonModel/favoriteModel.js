@@ -1,5 +1,7 @@
 import { action } from "easy-peasy";
 import { toast } from "react-toastify";
+import { LocalStorage } from "../../../utility/localStorage";
+const favorite_key = import.meta.env.VITE_FAVORITE_KEY;
 
 const favoriteModel = {
   items: [],
@@ -18,6 +20,9 @@ const favoriteModel = {
       autoClose: 500,
       position: "bottom-right",
     });
+
+    // set favorite items in localStorage
+    LocalStorage.SAVE_LOCAL_DATA(favorite_key, state.items);
   }),
 };
 

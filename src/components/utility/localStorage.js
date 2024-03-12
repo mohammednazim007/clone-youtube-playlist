@@ -1,4 +1,4 @@
-const key = import.meta.env.VITE_PLAYLIST_KEY;
+const favorite_key = import.meta.env.VITE_FAVORITE_KEY;
 
 class Storage {
   SAVE_LOCAL_DATA = (data_key, data) => {
