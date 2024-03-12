@@ -1,10 +1,9 @@
-import { Heart, ShoppingCart } from "phosphor-react";
+import { Heart } from "phosphor-react";
 import { Avatar, Card } from "keep-react";
 import { Link } from "react-router-dom";
 import { useStoreActions } from "easy-peasy";
-import { useSignal } from "@preact/signals-react";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import styles from "./playlist.module.css";
 
 const Play_list_cart_component = ({ data }) => {
   const [heartToggle, setHeartToggle] = useState(false);
@@ -47,14 +46,14 @@ const Play_list_cart_component = ({ data }) => {
 
           {/* === image with channel name & dynamic routes for playlist === */}
           <Link to={`/home/playlistVideo/${data?.playlistId}`}>
-            <Card.Container className="flex items-center py-2">
+            <Card.Container className={`flex items-center justify-start py-2`}>
               <div className="w-[100px]">
                 <Avatar shape="circle" size="lg" img={data?.medium?.url} />
               </div>
               <div>
                 <span className="inline-block ml-2 text-[1.0rem] font-bold">
-                  {data?.channelTitle.length >= 20
-                    ? `${data?.channelTitle.slice(0, 50)} ...`
+                  {data?.channelTitle.length >= 15
+                    ? `${data?.channelTitle.slice(0, 20)} ...`
                     : data?.channelTitle}
                 </span>
               </div>

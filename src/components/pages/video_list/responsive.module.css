@@ -10,3 +10,7 @@
 .bg_gradient {
   background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
 }
+.customShadow {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* background-color: #9290c3; */
+}

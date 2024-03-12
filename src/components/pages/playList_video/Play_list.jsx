@@ -1,7 +1,7 @@
 import { useStoreActions, useStoreState } from "easy-peasy";
 import Search_input_component from "./Search_input";
 import Play_list_cart_component from "./Play_list_cart_component";
-import "./playlist.css";
+import style from "./playlist.module.css";
 import SpinnerComponent from "../spinner/Spinner";
 import youtube_playlist_parser from "../../utility/youtube_playlist_parser";
 import { LocalStorage } from "../../utility/localStorage";
@@ -45,7 +45,7 @@ const Play_list_component = () => {
       {isLoading ? (
         <SpinnerComponent />
       ) : (
-        <div className="responsive_css_layout ">
+        <div className={` ${style.responsive_css_layout}`}>
           {dataStore &&
             dataStore?.map((value) => (
               <Play_list_cart_component key={value.playlistId} data={value} />

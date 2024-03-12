@@ -1,10 +1,10 @@
-import React from "react";
+import style from "./responsive.module.css";
 
 const VideoFooter = ({ videoObject }) => {
   return (
     <div>
       <div className="">
-        <div className="mt-6">
+        <div className={`py-5 px-2 mt-1 ${style.customShadow}`}>
           <div>
             <div className="flex items-center">
               {videoObject?.value && (
